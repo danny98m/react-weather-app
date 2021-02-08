@@ -1,0 +1,38 @@
+.WeatherCard {
+  text-align: center;
+  padding: 0 1em;
+}
+
+.WeatherCard:hover {
+  cursor: pointer;
+}
+
+.WeatherCard > * {
+  margin-bottom: 0.2em;
+}
+
+.WeatherCard .Current {
+  font-weight: bold;
+}
+
+.WeatherCard .Min {
+  font-weight: lighter;
+  color: #b3fafb;
+}
+
+.WeatherCard .Max {
+  color: #ff581a;
+}
+
+.WeatherCard .MinMax {
+  display: inline-flex;
+}
+
+.WeatherCard .MinMax > * {
+  margin-left: 0.3em;
+}
+
+.SelectedBorder {
+  box-sizing: border-box;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}

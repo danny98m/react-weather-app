@@ -1,0 +1,12 @@
+.HourCard {
+  text-align: center;
+  color: #fff;
+}
+
+.HourCard p {
+  margin: 0.2em;
+}
+
+.HourCard img {
+  margin: 0;
+}

@@ -1,0 +1,56 @@
+.DetailedView {
+  margin: 2em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 0.5em 1em;
+  color: #fff;
+}
+
+.DetailedView .Date {
+  color: #fff;
+  text-align: center;
+}
+
+.InfoContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  justify-items: center;
+  column-gap: 3em;
+  text-align: center;
+  line-height: 1.7;
+}
+
+.InfoContainer img {
+  height: 50px;
+  width: 50px;
+}
+
+.InfoContainer .InfoSquare {
+  margin-bottom: 1em;
+}
+
+.InfoContainer .InfoSquare > * {
+  margin: 0;
+}
+
+.UviRating {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+/* UV Ranking Classes */
+.Low {
+  color: green;
+}
+.Moderate {
+  color: yellow;
+}
+.High {
+  color: orange;
+}
+.VeryHigh {
+  color: red;
+}
+.Extreme {
+  color: violet;
+}

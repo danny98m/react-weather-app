@@ -1,0 +1,23 @@
+.WeatherCardList {
+  overflow: hidden;
+  max-width: 100%;
+  margin: 2em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  justify-items: center;
+  column-gap: 3em;
+  color: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 5px;
+}
+
+@media (max-width: 500px) {
+  .WeatherCardList {
+    display: grid;
+    grid-gap: 1px;
+    grid-template-columns: repeat(8, 1fr);
+    overflow-x: scroll;
+    scroll-snap-type: x proximity;
+    grid-template-rows: minmax(150px, 1fr);
+  }
+}
