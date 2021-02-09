@@ -15,7 +15,6 @@ export const mapToDay = num => {
       return 'Friday'
     case 6:
       return 'Saturday' 
-  
     default:
       return 'Error'
   }
