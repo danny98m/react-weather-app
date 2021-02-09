@@ -1,18 +1,9 @@
-// formats time as HH:MM from a unix time
-export function formatTimeString(time) {
-  const dateTime = new Date(time * 1000);
-  const dateTimeHours = dateTime.getHours();
-  const dateTimeMinutes = dateTime.getMinutes();
+import { DateTime } from 'luxon';
 
-  let dateTimeFormat = '';
+// formats time as HH:MM from a unix time string
+export function formatTimeString(seconds, zone) {
+  const time = DateTime.fromSeconds(seconds).setZone(zone);
+  const localRepresentation = time.toLocaleString(DateTime.TIME_SIMPLE);
 
-  dateTimeFormat += `${dateTimeHours}:`;
-
-  if (dateTimeMinutes < 10) {
-    dateTimeFormat += `0${dateTimeMinutes}`;
-  } else {
-    dateTimeFormat += dateTimeMinutes;
-  }
-
-  return dateTimeFormat;
+  return localRepresentation;
 }

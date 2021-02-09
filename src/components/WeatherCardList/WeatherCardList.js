@@ -19,6 +19,7 @@ const WeatherCardList = props => {
       changeSelected={changeSelected} 
       index={index} 
       selectedIndex={props.selected} 
+      tz={props.tz}
     />
   ))
 

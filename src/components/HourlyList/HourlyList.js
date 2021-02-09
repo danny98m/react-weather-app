@@ -3,7 +3,7 @@ import classes from './HourlyList.module.css';
 
 const HourlyList = props => {
   const hourCards = props.hourlyArray.map((item, index) => (
-    <HourCard key={item.dt} hourData={item} index={index} />
+    <HourCard key={item.dt} hourData={item} index={index} tz={props.tz}/>
   ))
 
   return (

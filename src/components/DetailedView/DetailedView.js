@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 
 import { formatTimeString } from '../../utility/formatTime';
-import { mapToDay, mapToMonth } from '../../utility/dateMap';
 import { calculateUvi } from '../../utility/calculateUviRating';
+import { formatDate } from '../../utility/formatDate';
 
 // Images
 import classes from './DetailedView.module.css';
@@ -15,10 +15,10 @@ import Sun from '../../assets/img/weather/sun.png';
 
 
 const DetailedView = props => {
-  const date = new Date(props.data.dt * 1000);
   const sunriseTime = formatTimeString(props.data.sunrise);
   const sunsetTime = formatTimeString(props.data.sunset);
   const uviRating = calculateUvi(props.data.uvi);
+  const dateFull = formatDate(props.data.dt, props.tz, 'DATE_FULL');
 
   // Scroll when detailed view appears
   const { executeScroll } = props;
@@ -51,7 +51,7 @@ const DetailedView = props => {
 
   return (
     <div className={classes.DetailedView}>
-      <h2 className={classes.Date}>Details for {mapToDay(date.getDay())}, {mapToMonth(date.getMonth())} {date.getDate()} {date.getFullYear()}</h2>
+      <h2 className={classes.Date}>Details for {dateFull}</h2>
       <div className={classes.InfoContainer}>
         <div className={classes.InfoSquare}>
           <img src={Sunrise} alt="Sunrise"/>

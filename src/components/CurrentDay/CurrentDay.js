@@ -1,19 +1,19 @@
 import { Fragment } from 'react';
 
 import HourlyList from '../HourlyList/HourlyList';
-import classes from "./CurrentDay.module.css";
-import { mapToDay } from '../../utility/dateMap';
+import classes from './CurrentDay.module.css';
 import { formatTimeString } from '../../utility/formatTime';
+import { formatDate } from '../../utility/formatDate';
 
 const CurrentDay = props => {
-  const date = new Date(props.currentData.dt * 1000);
-  const timeString = formatTimeString(props.currentData.dt);
+  const timeString = formatTimeString(props.currentData.dt, props.tz);
+  const weekday = formatDate(props.currentData.dt, props.tz, 'weekdayLong')
 
   return (
     <Fragment>
       <div className={classes.CurrentDay}>
         <h1>{props.locationData}</h1>
-        <h2 className={classes.Day}>{mapToDay(date.getDay())} {timeString}</h2>
+        <h2 className={classes.Day}>{weekday} {timeString}</h2>
         <h2 className={classes.CurrentTemp}>{Math.round(props.currentData.temp)}&deg;</h2>
         <div className={classes.Grid}>
           <div>
@@ -30,7 +30,7 @@ const CurrentDay = props => {
           </div>
         </div>
       </div>
-      <HourlyList hourlyArray={props.hourlyArray}/>
+      <HourlyList hourlyArray={props.hourlyArray} tz={props.tz}/>
     </Fragment>
   )
 }

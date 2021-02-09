@@ -3,8 +3,7 @@ import { formatTimeString } from '../../../utility/formatTime';
 
 
 const HourCard = props => {
-  const date = new Date(props.hourData.dt);
-  const timeString = formatTimeString(date);
+  const timeString = formatTimeString(props.hourData.dt);
   const pop = Math.floor(props.hourData.pop * 100);
 
   return (
