@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import CurrentDay from './components/CurrentDay/CurrentDay';
 import WeatherCardList from './components/WeatherCardList/WeatherCardList';
 import DetailedView from './components/DetailedView/DetailedView';
+import Chart from './components/Chart/Chart';
 // default data set for optional use without api calls 
 import Data from './onecall.json';
 import axios from 'axios';
@@ -53,7 +54,7 @@ function App() {
     <div className="App">
       <Switch>
         <Route path="/chart">
-          <h1>Someday... you will see a chart here</h1>
+          <Chart hourlyTemps={weatherData.hourly} />
         </Route>
         <Route path="/">
             <CurrentDay 

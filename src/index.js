@@ -2,13 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Footer from './components/Footer/Footer';
+import Footer from './components/UI/Footer/Footer';
+import Nav from './components/UI/Nav/Nav';
 import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+      <Nav />
       <App />
       <Footer />
     </BrowserRouter>

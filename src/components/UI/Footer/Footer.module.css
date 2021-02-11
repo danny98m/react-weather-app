@@ -1,14 +1,19 @@
 .Footer {
   width: 100%;
-  padding: 1em;
+  padding: 0.8em;
   background-color: #333;
   color: #fff;
   text-align: center;
   font-size: 0.8rem;
   box-sizing: border-box;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .Footer a {
   text-decoration: none;
-  color: orange;
+  color: #ef820d;
 }

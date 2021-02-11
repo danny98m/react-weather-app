@@ -1,0 +1,22 @@
+.Chart {
+  margin: 2em;
+}
+
+.Chart h1 {
+  text-align: center;
+  color: #fff;
+}
+
+.Chart p {
+  display: none;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  opacity: 0.4;
+}
+
+@media (max-width: 500px) {
+  .Chart p {
+    display: block;
+  }
+}
