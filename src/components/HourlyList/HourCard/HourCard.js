@@ -1,21 +1,34 @@
+import React from 'react';
+import PropTypes, { instanceOf } from 'prop-types';
 import classes from './HourCard.module.css';
 import { formatTimeString } from '../../../utility/formatTime';
 
-
-const HourCard = props => {
-  const timeString = formatTimeString(props.hourData.dt);
-  const pop = Math.floor(props.hourData.pop * 100);
+const HourCard = ({ hourData }) => {
+  const timeString = formatTimeString(hourData.dt);
+  const pop = Math.floor(hourData.pop * 100);
 
   return (
     <div className={classes.HourCard}>
       <p className={classes.Time}>{timeString}</p>
-      {pop > 0 ? 
-        <p>{pop}&#37;</p> : <p>&nbsp;</p>
-      }
-      <img src={`http://openweathermap.org/img/wn/${props.hourData.weather[0].icon}@2x.png`} alt=""/>
-      <p>{Math.round(props.hourData.temp)}&deg;</p>
+      {pop > 0
+        ? (
+          <p>
+            {pop}
+            &#37;
+          </p>
+        )
+        : <p>&nbsp;</p>}
+      <img src={`http://openweathermap.org/img/wn/${hourData.weather[0].icon}@2x.png`} alt="" />
+      <p>
+        {Math.round(hourData.temp)}
+        &deg;
+      </p>
     </div>
-  )
-}
+  );
+};
+
+HourCard.propTypes = {
+  hourData: instanceOf(PropTypes.object).isRequired,
+};
 
 export default HourCard;

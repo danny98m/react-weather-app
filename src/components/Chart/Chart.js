@@ -13,8 +13,7 @@ import PropTypes from 'prop-types';
 import classes from './Chart.module.css';
 import { formatTimeString } from '../../utility/formatTime';
 
-const Chart = (props) => {
-  const { hourlyTemps } = props;
+const Chart = ({ hourlyTemps }) => {
   const temps = [];
   hourlyTemps.forEach((obj) => {
     temps.push({ time: formatTimeString(obj.dt), temp: obj.temp });
