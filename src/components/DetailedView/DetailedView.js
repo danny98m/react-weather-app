@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { formatTimeString } from '../../utility/formatTime';
-import { calculateUvi } from '../../utility/calculateUviRating';
-import { formatDate } from '../../utility/formatDate';
+import formatTimeString from '../../utility/formatTime';
+import calculateUvi from '../../utility/calculateUviRating';
+import formatDate from '../../utility/formatDate';
 
 // Images
 import classes from './DetailedView.module.css';

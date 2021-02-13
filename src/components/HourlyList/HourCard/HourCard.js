@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes, { instanceOf } from 'prop-types';
 import classes from './HourCard.module.css';
-import { formatTimeString } from '../../../utility/formatTime';
+import formatTimeString from '../../../utility/formatTime';
 
 const HourCard = ({ hourData, tz }) => {
   const timeString = formatTimeString(hourData.dt, tz);

@@ -8,7 +8,7 @@ import DetailedView from './components/DetailedView/DetailedView';
 import Chart from './components/Chart/Chart';
 // default data set for optional use without api calls
 import Data from './onecall.json';
-import { getLocaleInfo } from './utility/getLocaleInfo';
+import getLocaleInfo from './utility/getLocaleInfo';
 
 function App() {
   const detailRef = useRef(null);

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 import HourlyList from '../HourlyList/HourlyList';
 import classes from './CurrentDay.module.css';
-import { formatTimeString } from '../../utility/formatTime';
-import { formatDate } from '../../utility/formatDate';
+import formatTimeString from '../../utility/formatTime';
+import formatDate from '../../utility/formatDate';
 
 const CurrentDay = ({
   currentData,

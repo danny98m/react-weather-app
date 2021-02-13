@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { formatDate } from '../../../utility/formatDate';
+import formatDate from '../../../utility/formatDate';
 import classes from './WeatherCard.module.css';
 
 const WeatherCard = ({

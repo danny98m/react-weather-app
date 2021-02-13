@@ -11,7 +11,7 @@ import {
 } from 'recharts';
 import PropTypes from 'prop-types';
 import classes from './Chart.module.css';
-import { formatTimeString } from '../../utility/formatTime';
+import formatTimeString from '../../utility/formatTime';
 
 const Chart = ({ hourlyTemps, tz }) => {
   const temps = [];
