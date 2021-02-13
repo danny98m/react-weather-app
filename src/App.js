@@ -77,7 +77,6 @@ function App() {
               ? (
                 <DetailedView
                   executeScroll={executeScroll}
-                  index={selected}
                   data={weatherData.daily[selected]}
                   tz={weatherData.timezone}
                 />

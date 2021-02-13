@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import { formatTimeString } from '../../utility/formatTime';
 import { calculateUvi } from '../../utility/calculateUviRating';
@@ -13,82 +14,108 @@ import Rain from '../../assets/img/weather/rain.png';
 import Humidity from '../../assets/img/weather/humidity.png';
 import Sun from '../../assets/img/weather/sun.png';
 
-
-const DetailedView = props => {
-  const sunriseTime = formatTimeString(props.data.sunrise);
-  const sunsetTime = formatTimeString(props.data.sunset);
-  const uviRating = calculateUvi(props.data.uvi);
-  const dateFull = formatDate(props.data.dt, props.tz, 'DATE_FULL');
+const DetailedView = ({
+  executeScroll,
+  data,
+  tz,
+}) => {
+  const sunriseTime = formatTimeString(data.sunrise);
+  const sunsetTime = formatTimeString(data.sunset);
+  const uviRating = calculateUvi(data.uvi);
+  const dateFull = formatDate(data.dt, tz, 'DATE_FULL');
 
   // Scroll when detailed view appears
-  const { executeScroll } = props;
   useEffect(() => {
-    executeScroll()
-  }, [executeScroll])
+    executeScroll();
+  }, [executeScroll]);
 
   // Assign styles based on uv index
   let uviClass = '';
   switch (uviRating) {
-    case "Low":
-      uviClass = classes.Low
+    case 'Low':
+      uviClass = classes.Low;
       break;
-    case "Moderate":
-      uviClass = classes.Moderate
+    case 'Moderate':
+      uviClass = classes.Moderate;
       break;
-    case "High":
-      uviClass = classes.High
+    case 'High':
+      uviClass = classes.High;
       break;
-    case "Very High":
-      uviClass = classes.VeryHigh
+    case 'Very High':
+      uviClass = classes.VeryHigh;
       break;
-    case "Extreme":
-      uviClass = classes.Extreme
+    case 'Extreme':
+      uviClass = classes.Extreme;
       break;
     default:
-      uviClass = classes.Low
+      uviClass = classes.Low;
       break;
   }
 
   return (
     <div className={classes.DetailedView}>
-      <h2 className={classes.Date}>Details for {dateFull}</h2>
+      <h2 className={classes.Date}>
+        Details for
+        &nbsp;
+        {dateFull}
+      </h2>
       <div className={classes.InfoContainer}>
         <div className={classes.InfoSquare}>
-          <img src={Sunrise} alt="Sunrise"/>
+          <img src={Sunrise} alt="Sunrise" />
           <p>Sunrise</p>
           <p>{sunriseTime}</p>
         </div>
         <div className={classes.InfoSquare}>
-          <img src={Sunset} alt="Sunset"/>
+          <img src={Sunset} alt="Sunset" />
           <p>Sunset</p>
           <p>{sunsetTime}</p>
         </div>
         <div className={classes.InfoSquare}>
-          <img src={Wind} alt="Wind"/>
+          <img src={Wind} alt="Wind" />
           <p>Wind Speed</p>
-          <p>{props.data.wind_speed.toFixed(1)} mph</p>
+          <p>
+            {data.wind_speed.toFixed(1)}
+            &nbsp;
+            mph
+          </p>
         </div>
         <div className={classes.InfoSquare}>
-          <img src={Rain} alt="Rain"/>
+          <img src={Rain} alt="Rain" />
           <p>Precipitation</p>
-          <p>{Math.floor(props.data.pop * 100)}&#37;</p>
+          <p>
+            {Math.floor(data.pop * 100)}
+            &#37;
+          </p>
         </div>
         <div className={classes.InfoSquare}>
-          <img src={Humidity} alt="Humidity"/>
+          <img src={Humidity} alt="Humidity" />
           <p>Humidity</p>
-          <p>{props.data.humidity}&#37;</p>
+          <p>
+            {data.humidity}
+            &#37;
+          </p>
         </div>
         <div className={classes.InfoSquare}>
-          <img src={Sun} alt="Sun"/>
+          <img src={Sun} alt="Sun" />
           <p>UV Index</p>
           <p>
-            <span className={uviClass}>{uviRating}</span> 
-            <span className={classes.UviRating}>({Math.round(props.data.uvi)})</span>
+            <span className={uviClass}>{uviRating}</span>
+            <span className={classes.UviRating}>
+              &#40;
+              {Math.round(data.uvi)}
+              &#41;
+            </span>
           </p>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
+
+DetailedView.propTypes = {
+  executeScroll: PropTypes.func.isRequired,
+  data: PropTypes.instanceOf(PropTypes.object).isRequired,
+  tz: PropTypes.string.isRequired,
+};
 
 export default DetailedView;
