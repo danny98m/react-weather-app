@@ -3,8 +3,8 @@ import PropTypes, { instanceOf } from 'prop-types';
 import classes from './HourCard.module.css';
 import { formatTimeString } from '../../../utility/formatTime';
 
-const HourCard = ({ hourData }) => {
-  const timeString = formatTimeString(hourData.dt);
+const HourCard = ({ hourData, tz }) => {
+  const timeString = formatTimeString(hourData.dt, tz);
   const pop = Math.floor(hourData.pop * 100);
 
   return (
@@ -29,6 +29,7 @@ const HourCard = ({ hourData }) => {
 
 HourCard.propTypes = {
   hourData: instanceOf(PropTypes.object).isRequired,
+  tz: PropTypes.string.isRequired,
 };
 
 export default HourCard;

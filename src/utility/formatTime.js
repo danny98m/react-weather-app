@@ -4,6 +4,5 @@ import { DateTime } from 'luxon';
 export function formatTimeString(seconds, zone) {
   const time = DateTime.fromSeconds(seconds).setZone(zone);
   const localRepresentation = time.toLocaleString(DateTime.TIME_SIMPLE);
-
   return localRepresentation;
 }

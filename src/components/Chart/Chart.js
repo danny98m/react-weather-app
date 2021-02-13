@@ -13,10 +13,10 @@ import PropTypes from 'prop-types';
 import classes from './Chart.module.css';
 import { formatTimeString } from '../../utility/formatTime';
 
-const Chart = ({ hourlyTemps }) => {
+const Chart = ({ hourlyTemps, tz }) => {
   const temps = [];
   hourlyTemps.forEach((obj) => {
-    temps.push({ time: formatTimeString(obj.dt), temp: obj.temp });
+    temps.push({ time: formatTimeString(obj.dt, tz), temp: obj.temp });
   });
 
   function formatXAxis(tickItem) {
@@ -51,6 +51,7 @@ const Chart = ({ hourlyTemps }) => {
 
 Chart.propTypes = {
   hourlyTemps: PropTypes.arrayOf(PropTypes.object).isRequired,
+  tz: PropTypes.string.isRequired,
 };
 
 export default Chart;

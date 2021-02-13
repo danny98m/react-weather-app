@@ -57,7 +57,7 @@ function App() {
     <div className="App">
       <Switch>
         <Route path="/chart">
-          <Chart hourlyTemps={weatherData.hourly} />
+          <Chart hourlyTemps={weatherData.hourly} tz={weatherData.timezone} />
         </Route>
         <Route path="/">
           <CurrentDay
