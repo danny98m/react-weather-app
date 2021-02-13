@@ -56,7 +56,7 @@ const DetailedView = ({
     <div className={classes.DetailedView}>
       <h2 className={classes.Date}>
         Details for
-        &nbsp;
+        {' '}
         {dateFull}
       </h2>
       <div className={classes.InfoContainer}>
@@ -75,7 +75,7 @@ const DetailedView = ({
           <p>Wind Speed</p>
           <p>
             {data.wind_speed.toFixed(1)}
-            &nbsp;
+            {' '}
             mph
           </p>
         </div>

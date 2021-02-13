@@ -21,7 +21,7 @@ const CurrentDay = ({
         <h1>{locationData}</h1>
         <h2 className={classes.Day}>
           {weekday}
-          &nbsp;
+          {' '}
           {timeString}
         </h2>
         <h2 className={classes.CurrentTemp}>
