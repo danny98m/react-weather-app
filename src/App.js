@@ -27,8 +27,7 @@ function App() {
 
   const getWeather = (lat, long, key) => {
     axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=imperial&exclude=minutely&appid=${key}`)
-      .then((res) => setWeatherData(res.data))
-      .catch((err) => console.log(err));
+      .then((res) => setWeatherData(res.data));
   };
 
   useEffect(() => {
