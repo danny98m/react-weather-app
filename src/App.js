@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import CurrentDay from './components/CurrentDay/CurrentDay';
 import WeatherCardList from './components/WeatherCardList/WeatherCardList';
 import DetailedView from './components/DetailedView/DetailedView';
@@ -58,7 +58,7 @@ function App() {
         <Route path="/chart">
           <Chart hourlyTemps={weatherData.hourly} tz={weatherData.timezone} />
         </Route>
-        <Route path="/">
+        <Route path="/weather-forecast">
           <CurrentDay
             currentData={weatherData.current}
             hourlyArray={weatherData.hourly.slice(0, 25)}
@@ -83,6 +83,7 @@ function App() {
               : null}
           </div>
         </Route>
+        <Redirect to="/weather-forecast" />
       </Switch>
     </div>
   );
