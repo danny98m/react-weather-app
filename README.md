@@ -6,8 +6,7 @@ at sometime in early February 2021 (found inside ```./src/onecall.json```). To u
 Do not publish your code with the api keys in the ```.env``` file though as this will expose your api keys.
 
 ## Features
-The app shows the current weather, a 48 hour weather overview with horizontal scrolling, an 8 day (including current day) weather forecast, ability to click on these
-forecast cards to view more details about each coming day, and a chart showing the change in temperature over a 48 hour period.
+The app shows the current weather, a 24 hour weather overview with horizontal scrolling, an 8 day (including current day) weather forecast, ability to click on these forecast cards to view more details about each coming day, and a chart showing the change in temperature over a 48 hour period.
 
 ## To Run
 ```npm install```
