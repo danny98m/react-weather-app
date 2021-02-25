@@ -15,14 +15,16 @@ function App() {
   const [locationData, setlocationData] = useState('');
   // initialize to dummy data for use without api keys
   const [weatherData, setWeatherData] = useState(Data);
-  const [selected, setSelected] = useState();
+  const [selected, setSelected] = useState(-1);
 
   // scroll to the detail view when it is rendered
   const executeScroll = () => detailRef.current.scrollIntoView();
 
   const getLocation = (lat, long, key) => {
     axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${long}&result_type=locality&key=${key}`)
-      .then((res) => setlocationData(`${getLocaleInfo(res.data.results[0].address_components, 'locality', 'long')}, ${getLocaleInfo(res.data.results[0].address_components, 'administrative_area_level_1', 'short')}, ${getLocaleInfo(res.data.results[0].address_components, 'country', 'short')}`));
+      .then((res) => setlocationData(`${getLocaleInfo(res.data.results[0].address_components, 'locality', 'long')}, \
+      ${getLocaleInfo(res.data.results[0].address_components, 'administrative_area_level_1', 'short')}, \
+      ${getLocaleInfo(res.data.results[0].address_components, 'country', 'short')}`));
   };
 
   const getWeather = (lat, long, key) => {

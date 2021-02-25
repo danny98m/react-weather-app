@@ -5,6 +5,7 @@ import formatTimeString from '../../../utility/formatTime';
 
 const HourCard = ({ hourData, tz }) => {
   const timeString = formatTimeString(hourData.dt, tz);
+  // percentage of precipitation
   const pop = Math.floor(hourData.pop * 100);
 
   return (

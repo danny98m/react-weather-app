@@ -30,27 +30,7 @@ const DetailedView = ({
   }, [executeScroll]);
 
   // Assign styles based on uv index
-  let uviClass = '';
-  switch (uviRating) {
-    case 'Low':
-      uviClass = classes.Low;
-      break;
-    case 'Moderate':
-      uviClass = classes.Moderate;
-      break;
-    case 'High':
-      uviClass = classes.High;
-      break;
-    case 'Very High':
-      uviClass = classes.VeryHigh;
-      break;
-    case 'Extreme':
-      uviClass = classes.Extreme;
-      break;
-    default:
-      uviClass = classes.Low;
-      break;
-  }
+  const uviClass = classes[uviRating];
 
   return (
     <div className={classes.DetailedView}>

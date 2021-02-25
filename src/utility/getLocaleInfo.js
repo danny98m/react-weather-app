@@ -2,7 +2,7 @@
 // result data to return specified and formatted location information
 const getLocaleInfo = (address, level, length) => {
   // grab location information from api data based on level of administration
-  const locationObj = address.filter((type) => type.types[0] === level)[0];
+  const locationObj = address.filter((component) => component.types[0] === level)[0];
 
   // return abbreviation or full
   return (
